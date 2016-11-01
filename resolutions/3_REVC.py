@@ -10,13 +10,10 @@ import tools.files as tf
 import tools.sequence as ts
 
 # Import file
-fileName = '1_DNA.txt'
+fileName = '3_REVC.txt'
 file = os.path.join(relPath, 'inputData', fileName)
 
 # Create sequence object
 sequence = ts.Sequence(tf.readFile(file))
 
-# Count per nucleotide
-listN = ['A', 'C', 'G', 'T']
-for N in listN:
-    print(sequence.countN(N))
+print(sequence.sequenceRevComp)

@@ -10,7 +10,8 @@ import tools.files as tf
 import tools.sequence as ts    
     
 # Import file
-file = os.path.join(relPath, 'inputData', '2_RNA.txt')
+fileName = '2_RNA.txt'
+file = os.path.join(relPath, 'inputData', fileName)
 
 # Create sequence object
 sequence = ts.Sequence(tf.readFile(file))

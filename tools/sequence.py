@@ -1,22 +1,29 @@
-#Joël Simoneau
-#Submission for ROSALIND
+# Joël Simoneau
+# Submission for ROSALIND
 from collections import Counter
 
 class Sequence:
-    def __init__(self, sequence):
+    def __init__(self, sequence, fasta = ''):
         self.sequence = sequence
-        self.DNAdict = {'A':'T', 'T':'A', 'C':'G', 'G':'C'}
+        self.fasta = fasta
+        self.dictdna = {'A':'T', 'T':'A', 'C':'G', 'G':'C'}
 
-        self.sequenceRevComp = self.revComp()
+        self.sequence_revcomp = self.revcomp()
+        self.gccontent = self.count_gc()
     
-    def countN(self, N):
+    def count_n(self, n):
         # Return the number of N appareance
         c = Counter(self.sequence)
-        return c[N]
+        return c[n]
         
-    def DNA2RNA(self):
+    def dna2rna(self):
         self.sequence = ''.join(['U' if N == 'T' else N for N in self.sequence])
+
+    def rna2prot(self):
+        # TODO
         
-    def revComp(self):
-        return ''.join([self.DNAdict[N] for N in self.sequence[::-1]])
+    def revcomp(self):
+        return ''.join([self.dictdna[N] for N in self.sequence[::-1]])
         
+    def count_gc(self):
+        return sum([1 if N in 'GC' else 0 for N in self.sequence])/len(self.sequence)

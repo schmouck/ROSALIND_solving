@@ -5,16 +5,16 @@ import os, sys
 relPath = os.path.abspath("..")
 if relPath not in sys.path:
     sys.path.insert(0, relPath)
-    
+
 import tools.files as tf
-import tools.sequence as ts    
-    
+
 # Import file
-filename = '2_RNA.txt'
+filename = '6_GC.txt'
 file = os.path.join(relPath, 'inputData', filename)
+data = tf.read_fastafile(file)
 
-# Create sequence object
-sequence = ts.Sequence(tf.read_file(file))
+# Sorting by GC content
+data.sort(key = lambda seq: seq.gccontent)
 
-sequence.dna2rna()
-print(sequence.sequence)
+print(data[-1].fasta)
+print(data[-1].gccontent*100)

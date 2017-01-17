@@ -10,13 +10,13 @@ import tools.files as tf
 import tools.sequence as ts
 
 # Import file
-fileName = '1_DNA.txt'
-file = os.path.join(relPath, 'inputData', fileName)
+filename = '1_DNA.txt'
+file = os.path.join(relPath, 'inputData', filename)
 
 # Create sequence object
-sequence = ts.Sequence(tf.readFile(file))
+sequence = ts.Sequence(tf.read_file(file))
 
 # Count per nucleotide
-listN = ['A', 'C', 'G', 'T']
-for N in listN:
-    print(sequence.countN(N))
+listn = ['A', 'C', 'G', 'T']
+for n in listn:
+    print(sequence.count_n(n))
